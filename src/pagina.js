@@ -10,13 +10,12 @@ const inicializarNavegador = async () => {
 
   // Inicia um novo navegador
   browser = await puppeteer.launch({
-    headless: true, // Altere para true para executar sem interface gráfica
+    headless: "shell", // Altere para true para executar sem interface gráfica
     args: [
-      "--no-sandbox",
-      "--disable-setuid-sandbox",
-      "--disable-dev-shm-usage",
-      "--disable-accelerated-2d-canvas",
-      "--disable-gpu",
+      `--no-sandbox`,
+      `--headless`,
+      `--disable-gpu`,
+      `--disable-dev-shm-usage`,
     ],
     executablePath:
       process.env.NODE_ENV === "production"
