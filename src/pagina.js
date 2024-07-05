@@ -18,9 +18,7 @@ const inicializarNavegador = async () => {
       `--disable-dev-shm-usage`,
     ],
     executablePath:
-      process.env.NODE_ENV === "production"
-        ? process.env.PUPPETEER_EXECUTABLE_PATH
-        : puppeteer.executablePath(),
+      process.env.PUPPETEER_EXECUTABLE_PATH || "/usr/bin/google-chrome-stable",
   });
 
   // Abre uma nova página para o CAPTCHA
